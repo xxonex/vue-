@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    
+    <style>
+        * {
+            padding: 0;
+            font-size: 20px;
+            margin: 0;
+        }
+        body{
+            display: flex;
+        }
+        .shell {
+            height: 40px;
+            display: flex;
+            position: absolute;
+     /* 水平垂直居中：位置高度和宽度元素解决方案        */
+    top: 50%;
+    left: 50%;
+    /* 以左上角为原点平移 */
+    transform: translate(-50%, -50%);
+        }
+        button{
+            width: 100px;
+            color: rgb(225, 107, 10);
+        }
+        #num{
+            width: 100px;
+            border: solid 1px ;
+            border-left: 0px;
+            border-right: 0px;
+            text-align: center;
+            line-height: 40px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <button id="sub" @click="sub">-</button>
+        <div id="num">{{num}}</div>
+        <button id="add" @click="add">+</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+
+<script>
+
+var app = new Vue(
+    {
+        el:".shell",
+        data:{
+            num:1
+        },
+        methods:{
+            add:function(){
+                console.log("add");
+                if(this.num<10)
+                {
+                    this.num++;
+                }
+                else{
+                    alert('最大为10')
+                }
+            },
+            sub:function(){
+                console.log("sub");
+                if(this.num>0)
+                {
+                    this.num--;
+                }
+                else{
+                    alert('最小为00')
+                }
+            }
+
+        }
+    }
+);
+</script>
+</html>
